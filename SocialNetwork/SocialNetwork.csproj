@@ -54,11 +54,13 @@
   <ItemGroup>
     <Compile Include="BLL\Exceptions\UserNotFoundExeption.cs" />
     <Compile Include="BLL\Exceptions\WrongPasswordExeption.cs" />
+    <Compile Include="BLL\Models\FriendAddingData.cs" />
     <Compile Include="BLL\Models\Message.cs" />
     <Compile Include="BLL\Models\MessageSendingData.cs" />
     <Compile Include="BLL\Models\User.cs" />
     <Compile Include="BLL\Models\UserAuthentificationData.cs" />
     <Compile Include="BLL\Models\UserRegistrationData.cs" />
+    <Compile Include="BLL\Services\FriendsService.cs" />
     <Compile Include="BLL\Services\MessageService.cs" />
     <Compile Include="BLL\Services\UserService.cs" />
     <Compile Include="DAL\Entity\FriendsEntity.cs" />
@@ -70,6 +72,9 @@
     <Compile Include="DAL\Repositories\IMessageRepository.cs" />
     <Compile Include="DAL\Repositories\IUserRepository.cs" />
     <Compile Include="DAL\Repositories\MessageRepository.cs" />
+    <Compile Include="PLL\Veiws\FriendsAddingData.cs" />
+    <Compile Include="PLL\Veiws\FriendsAddingView.cs" />
+    <Compile Include="PLL\Veiws\FriendServiceView.cs" />
     <Compile Include="PLL\Veiws\UserIncomingMessagesView.cs" />
     <Compile Include="PLL\Veiws\UserOutcomingMessagesView.cs" />
     <Compile Include="DAL\Repositories\UserRepository.cs" />

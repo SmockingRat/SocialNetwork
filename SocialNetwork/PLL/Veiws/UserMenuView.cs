@@ -1,10 +1,7 @@
 ﻿using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
@@ -27,7 +24,7 @@ namespace SocialNetwork.PLL.Veiws
 
                 Console.WriteLine("Просмотреть информацию о моём профиле (нажмите 1)");
                 Console.WriteLine("Редактировать мой профиль (нажмите 2)");
-                Console.WriteLine("Добавить в друзья (нажмите 3)");
+                Console.WriteLine("Перейти в меню друзей (нажмите 3)");
                 Console.WriteLine("Написать сообщение (нажмите 4)");
                 Console.WriteLine("Просмотреть входящие сообщения (нажмите 5)");
                 Console.WriteLine("Просмотреть исходящие сообщения (нажмите 6)");
@@ -53,6 +50,7 @@ namespace SocialNetwork.PLL.Veiws
                         }
                     case '3':
                         {
+                            Program.friendServiceView.Show(user);
 
                             break;
                         }
