@@ -3,23 +3,31 @@ using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
 using SocialNetwork.PLL.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class of view of authentification
+    /// </summary>
     public class AuthentificationView
     {
+        /// <summary>
+        /// Field of UserService class
+        /// </summary>
         UserService user;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
+        /// <param name="userService"> Parameter of Userservice class </param>
         public AuthentificationView(UserService userService)
         {
             user = userService;
         }
 
-
+        /// <summary>
+        /// Methos show view
+        /// </summary>
         public void Show()
         {
             var authenticationData = new UserAuthentificationData();

@@ -5,22 +5,38 @@ using SocialNetwork.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.BLL.Services
 {
+    /// <summary>
+    /// Class works with messages
+    /// </summary>
     public class MessageService
     {
+        /// <summary>
+        /// Field of IMessageRepository interface
+        /// </summary>
         IMessageRepository messageRepository;
+
+        /// <summary>
+        /// Field of IUserRepository interface
+        /// </summary>
         IUserRepository userRepository;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
         public MessageService()
         {
             userRepository = new UserRepository();
             messageRepository = new MessageRepository();
         }
 
+        /// <summary>
+        /// Method shows user's incoming messages
+        /// </summary>
+        /// <param name="recipientId"> Id of recipient </param>
+        /// <returns> List with messages </returns>
         public IEnumerable<Message> GetIncomingMessagesByUserId(int recipientId)
         {
             var messages = new List<Message>();
@@ -36,6 +52,11 @@ namespace SocialNetwork.BLL.Services
             return messages;
         }
 
+        /// <summary>
+        /// Method shows user's outgoing messages
+        /// </summary>
+        /// <param name="senderId"> Id of sender </param>
+        /// <returns> List of messages </returns>
         public IEnumerable<Message> GetOutcomingMessagesByUserId(int senderId)
         {
             var messages = new List<Message>();
@@ -51,6 +72,14 @@ namespace SocialNetwork.BLL.Services
             return messages;
         }
 
+        /// <summary>
+        /// Method sends messages
+        /// </summary>
+        /// <param name="messageSendingData"> Parameter contains important data for message sending </param>
+        /// <exception cref="ArgumentNullException"> Special exception </exception>
+        /// <exception cref="ArgumentOutOfRangeException"> Standart exception </exception>
+        /// <exception cref="UserNotFoundExeption"> Special exception </exception>
+        /// <exception cref="Exception"> Standart exception </exception>
         public void SendMessage(MessageSendingData messageSendingData)
         {
             if (String.IsNullOrEmpty(messageSendingData.Content))

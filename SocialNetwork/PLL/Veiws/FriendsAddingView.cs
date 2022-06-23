@@ -1,24 +1,34 @@
 ﻿using SocialNetwork.BLL.Services;
 using SocialNetwork.BLL.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SocialNetwork.BLL.Exceptions;
 using SocialNetwork.PLL.Helpers;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class show view of friends adding
+    /// </summary>
     public class FriendsAddingView
     {
+        /// <summary>
+        /// Field of FriendsDervice class
+        /// </summary>
         FriendsService friendsService;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
+        /// <param name="friendsService"> Parameter of FriendsService class </param>
         public FriendsAddingView(FriendsService friendsService)
         {
             this.friendsService=friendsService;
         }
 
+        /// <summary>
+        /// Method show view
+        /// </summary>
+        /// <param name="user"> Data of user </param>
         public void Show(User user)
         {
             Console.WriteLine("Введите почту добавляемого друга:");
@@ -44,8 +54,6 @@ namespace SocialNetwork.PLL.Veiws
             {
                 AlertMessage.Show("Произошла ошибка при записи");
             }
-
-
         }
     }
 }

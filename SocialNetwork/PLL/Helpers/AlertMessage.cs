@@ -1,13 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Helpers
 {
+    /// <summary>
+    /// Class contain new type of message
+    /// </summary>
     public class AlertMessage
     {
+        /// <summary>
+        /// Show alert message
+        /// </summary>
+        /// <param name="message"> Text of message </param>
         public static void Show(string message)
         {
             ConsoleColor origColor = Console.ForegroundColor;

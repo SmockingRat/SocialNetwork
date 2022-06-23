@@ -23,11 +23,6 @@ namespace SocialNetwork.Tests
                 email = "a@gmil.com",
                 password = "00000000",
             };
-
-            testUser.Create(TestUserData);            
-
-
-
             Assert.True(testUser.Create(TestUserData) != 0);
 
         }

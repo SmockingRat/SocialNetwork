@@ -1,15 +1,17 @@
 ﻿using SocialNetwork.BLL.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class shows information of user
+    /// </summary>
     class ShowUserInfoView
     {
-
+        /// <summary>
+        /// Method shows view
+        /// </summary>
+        /// <param name="user"> User data </param>
         public void Show(User user)
         {
             Console.ForegroundColor = ConsoleColor.Green;

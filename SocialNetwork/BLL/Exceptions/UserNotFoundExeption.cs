@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.BLL.Exceptions
 {
+    /// <summary>
+    /// New type of excertion. Describes absense of the user in data base.
+    /// </summary>
     public class UserNotFoundExeption: Exception
     {
 

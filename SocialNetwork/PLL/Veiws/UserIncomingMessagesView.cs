@@ -2,17 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class shows incoming messages
+    /// </summary>
     public class UserIncomingMessageView
     {
+        /// <summary>
+        /// Method shows view
+        /// </summary>
+        /// <param name="incomingMessages"></param>
         public void Show(IEnumerable<Message> incomingMessages)
         {
             Console.WriteLine("\nВходящие сообщения");
-
 
             if (incomingMessages.Count() == 0)
             {

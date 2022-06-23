@@ -1,16 +1,16 @@
-﻿using SocialNetwork.BLL.Models;
-using SocialNetwork.BLL.Services;
-using System;
-using SocialNetwork.BLL.Exceptions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SocialNetwork.BLL.Services;
 using SocialNetwork.PLL.Veiws;
 
 namespace SocialNetwork
 {
+    /// <summary>
+    /// Entry class
+    /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// Fields for work
+        /// </summary>
         static UserService userService;
         static MessageService messageService;
         static FriendsService friendsService;
@@ -26,6 +26,10 @@ namespace SocialNetwork
         public static FriendServiceView friendServiceView;
         public static FriendsAddingView friendsAddingView;
 
+        /// <summary>
+        /// Entry method
+        /// </summary>
+        /// <param name="args"> Entry parameter </param>
         static void Main(string[] args)
         {
             userService = new UserService();

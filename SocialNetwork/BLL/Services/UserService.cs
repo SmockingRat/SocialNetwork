@@ -2,22 +2,41 @@
 using SocialNetwork.DAL.Entity;
 using SocialNetwork.DAL.Repositories;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using SocialNetwork.BLL.Exceptions;
 
 namespace SocialNetwork.BLL.Services
 {
+    /// <summary>
+    /// Class works with users
+    /// </summary>
     public class UserService
     {
+        /// <summary>
+        /// Field of MessageService class
+        /// </summary>
         MessageService messageService;
+        
+        /// <summary>
+        /// Field of IUserRepository interface
+        /// </summary>
         IUserRepository userRepository;
+
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
         public UserService()
         {
             userRepository = new UserRepository();
             messageService = new MessageService();  
         }
 
+        /// <summary>
+        /// Method registers new users
+        /// </summary>
+        /// <param name="userRegistrationData"> Parameter contains important information for registrating </param>
+        /// <exception cref="ArgumentNullException"> Standart exception </exception>
+        /// <exception cref="Exception"> Standart exception </exception>
         public void Register(UserRegistrationData userRegistrationData)
         {
             if (String.IsNullOrEmpty(userRegistrationData.FirstName))
@@ -51,10 +70,15 @@ namespace SocialNetwork.BLL.Services
 
             if (this.userRepository.Create(userEntity) == 0)
                 throw new Exception();
-
-
         }
 
+        /// <summary>
+        /// Method lets user to enter his account
+        /// </summary>
+        /// <param name="userAuthenticationData"> Parameter contains important information for authentification </param>
+        /// <returns> New user model </returns>
+        /// <exception cref="UserNotFoundExeption"> Special exception </exception>
+        /// <exception cref="WrongPasswordExeption"> Special exception </exception>
         public User Authenticate(UserAuthentificationData userAuthenticationData)
         {
             var findUserEntity = userRepository.FindByEmail(userAuthenticationData.Email);
@@ -66,14 +90,11 @@ namespace SocialNetwork.BLL.Services
             return ConstructUserModel(findUserEntity);
         }
 
-        public User FindByEmail(string email)
-        {
-            var findUserEntity = userRepository.FindByEmail(email);
-            if (findUserEntity is null) throw new UserNotFoundExeption();
-
-            return ConstructUserModel(findUserEntity);
-        }
-
+        /// <summary>
+        /// Method updates user's data
+        /// </summary>
+        /// <param name="user"> Data of user </param>
+        /// <exception cref="Exception"> Standart exception </exception>
         public void Update(User user)
         {
             var updatableUserEntity = new UserEntity()
@@ -92,6 +113,11 @@ namespace SocialNetwork.BLL.Services
                 throw new Exception();
         }
 
+        /// <summary>
+        /// Method make up new user model
+        /// </summary>
+        /// <param name="userEntity"> Entity of user in database </param>
+        /// <returns> User entity </returns>
         private User ConstructUserModel(UserEntity userEntity)
         {
             var incomingMessages = messageService.GetIncomingMessagesByUserId(userEntity.user_id);
@@ -110,6 +136,12 @@ namespace SocialNetwork.BLL.Services
                           outgoingMessages);
         }
 
+        /// <summary>
+        /// Method looking for user by his id
+        /// </summary>
+        /// <param name="id"> Parameter contains user's id </param>
+        /// <returns> User model </returns>
+        /// <exception cref="UserNotFoundExeption"> Special exception </exception>
         public User FindById(int id)
         {
             var findUserEntity = userRepository.FindById(id);

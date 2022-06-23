@@ -2,22 +2,32 @@
 using SocialNetwork.BLL.Services;
 using SocialNetwork.PLL.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class shows view for user data update
+    /// </summary>
     public class UpdateUserInfoView
     {
+        /// <summary>
+        /// Field of UserService class
+        /// </summary>
         UserService userService;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
+        /// <param name="userService"> Parameter of UserService class </param>
         public UpdateUserInfoView(UserService userService)
         {
             this.userService=userService;
         }
 
+        /// <summary>
+        /// Method shows view
+        /// </summary>
+        /// <param name="user"> User data </param>
         public void Show(User user)
         {
             Console.Write("Меня зовут:");
@@ -37,15 +47,12 @@ namespace SocialNetwork.PLL.Veiws
             try
             {
                 userService.Update(user);
-
-
                 SucessMessage.Show("Ваш профиль успешно обновлён!");
             }
             catch(Exception)
             {
                 AlertMessage.Show("Что-то пошло не так!");
             }
-
         }
     }
 }

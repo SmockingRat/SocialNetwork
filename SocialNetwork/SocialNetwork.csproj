@@ -72,7 +72,6 @@
     <Compile Include="DAL\Repositories\IMessageRepository.cs" />
     <Compile Include="DAL\Repositories\IUserRepository.cs" />
     <Compile Include="DAL\Repositories\MessageRepository.cs" />
-    <Compile Include="PLL\Veiws\FriendsAddingData.cs" />
     <Compile Include="PLL\Veiws\FriendsAddingView.cs" />
     <Compile Include="PLL\Veiws\FriendServiceView.cs" />
     <Compile Include="PLL\Veiws\UserIncomingMessagesView.cs" />

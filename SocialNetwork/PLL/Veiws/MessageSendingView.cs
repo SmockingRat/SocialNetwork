@@ -6,19 +6,36 @@ using System;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class show message sending view
+    /// </summary>
     public class MessageSendingView
     {
+        /// <summary>
+        /// Field of UserService class
+        /// </summary>
         UserService userService;
+
+        /// <summary>
+        /// Field of MessageService class
+        /// </summary>
         MessageService messageService;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
+        /// <param name="messageService"> Parameter of MessageService class </param>
+        /// <param name="userService"> Parameter of UserService class </param>
         public MessageSendingView(MessageService messageService, UserService userService)
         {
             this.messageService = messageService;
             this.userService = userService;
         }
 
-        public object SuccessMessage { get; private set; }
-
+        /// <summary>
+        /// Method shows view
+        /// </summary>
+        /// <param name="user"> User datta </param>
         public void Show(User user)
         {
             var messageSendingData = new MessageSendingData();
@@ -57,8 +74,6 @@ namespace SocialNetwork.PLL.Veiws
             {
                 AlertMessage.Show("Произошла ошибка при отправке сообщения!");
             }
-            
-
         }
     }
 }

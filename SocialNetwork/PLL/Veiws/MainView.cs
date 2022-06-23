@@ -1,19 +1,21 @@
-﻿using SocialNetwork.BLL.Exceptions;
-using SocialNetwork.BLL.Models;
-using SocialNetwork.BLL.Services;
+﻿using SocialNetwork.BLL.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class show main view
+    /// </summary>
     public class MainView
     {
-
+        /// <summary>
+        /// Field of UserService class
+        /// </summary>
         public static UserService userService = new UserService();
 
+        /// <summary>
+        /// Method show view
+        /// </summary>
         public void Show()
         {
             Console.WriteLine("Добро пожаловать в социальную сеть.");
@@ -45,7 +47,5 @@ namespace SocialNetwork.PLL.Veiws
                 }
             }
         }
-
-
     }
 }

@@ -5,23 +5,38 @@ using SocialNetwork.DAL.Repositories;
 using SocialNetwork.PLL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.BLL.Services
 {
+    /// <summary>
+    /// Class works with friends
+    /// </summary>
     public class FriendsService
     {
+        /// <summary>
+        /// Field of UserRepository class
+        /// </summary>
         UserRepository userRepository;
+        /// <summary>
+        /// Field of FriendRepository class
+        /// </summary>
         FriendRepository friendRepository;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
         public FriendsService()
         {
             userRepository = new UserRepository();
             friendRepository = new FriendRepository();
         }
 
+        /// <summary>
+        /// Method add two users in "friend" entity
+        /// </summary>
+        /// <param name="friendAddingData"> Parameter contain imrotant data for adding in entity </param>
+        /// <exception cref="UserNotFoundExeption"> Type of special exception </exception>
+        /// <exception cref="Exception"> Standart exception </exception>
         public void AddUser(FriendAddingData friendAddingData)
         {
             var friendInfo = userRepository.FindByEmail(friendAddingData.friend_email);
@@ -37,10 +52,14 @@ namespace SocialNetwork.BLL.Services
 
             if (friendRepository.Create(friendsEntity) == 0)
                 throw new Exception();
-
-
         }
 
+        /// <summary>
+        /// Method show all friends
+        /// </summary>
+        /// <param name="user"> Parameter contaains user's data </param>
+        /// <exception cref="UserNotFoundExeption"> Special exception </exception>
+        /// <exception cref="Exception"> Standart exception </exception>
         public void ShowAllFriends(User user)
         {
             var friendsList = friendRepository.FindAllByUserId(user.Id);
@@ -64,8 +83,6 @@ namespace SocialNetwork.BLL.Services
             {
                 Console.WriteLine($"Имя - {oneFriend.Value}, почта - {oneFriend.Key}\n");
             }
-
         }
-
     }
 }

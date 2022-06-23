@@ -1,23 +1,31 @@
 ﻿using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Veiws
 {
+    /// <summary>
+    /// Class shows registration view
+    /// </summary>
     internal class RegistrationView
     {
-
+        /// <summary>
+        /// Field of UserService class
+        /// </summary>
         UserService userService;
 
+        /// <summary>
+        /// Constructor of class
+        /// </summary>
+        /// <param name="user"> UserService parameter </param>
         public RegistrationView(UserService user)
         {
             userService = user;
         }
 
+        /// <summary>
+        /// Method shows view
+        /// </summary>
         public void Show()
         {
             var userRegistrationData = new UserRegistrationData();
